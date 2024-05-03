@@ -7,6 +7,23 @@ Milestone 2
 Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php 
 che includeremo poi nella pagina principale -->
 
+<?php
+
+//leggo il numero scritto dall'utente
+$numb = 5;
+
+//elenco dei caratteri per la password
+$characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$@#!?";
+
+//mescolo la stringa data
+$charactersMixed = str_shuffle($characters);
+//genero la password casuale che ha come lunghezza i parametri dati
+$pwd = substr($charactersMixed,0, $numb);
+
+echo $pwd;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +36,11 @@ che includeremo poi nella pagina principale -->
     <div class="container pt-5">
         <h1>Password Generator</h1>
         <form method="get">
-            <div class="pt-3">
+            <div class="pt-4 pb-2">
                 <label for="password">Lunghezza password:</label>
                 <input name="password" id="password" type="number">
             </div>
+            <button type="submit" class="btn btn-primary">INVIA</button>
         </form>
     </div>
 </body>
