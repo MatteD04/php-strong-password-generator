@@ -8,17 +8,9 @@ Verificato il corretto funzionamento del nostro codice, spostiamo la logica in u
 che includeremo poi nella pagina principale -->
 
 <?php
+require_once __DIR__ . '/functions.php';
 
-//leggo il numero scritto dall'utente
-$numb = isset($_GET['password']) ? $_GET['password'] : '';
 
-//elenco dei caratteri per la password
-$characters = "abcdefghilmnopqrstuvzABCDEFGHILMNOPQRSTUVZ0123456789$@#!?";
-
-//mescolo la stringa data
-$charactersMixed = str_shuffle($characters);
-//genero la password casuale che ha come lunghezza i parametri dati
-$pwd = substr($charactersMixed,0, $numb);
 
 
 ?>
@@ -41,7 +33,9 @@ $pwd = substr($charactersMixed,0, $numb);
                 <input name="password" id="password" type="number">
             </div>
             <button type="submit" class="btn btn-primary">INVIA</button>
-            <?php echo $pwd; ?>
+            <div class="pt-3">
+                <p>Password generata: <?php echo $pwd; ?></p>
+            </div>
         </form>
     </div>
 </body>
